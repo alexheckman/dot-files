@@ -1,0 +1,18 @@
+[user]
+	name = Alexandru Heckman
+    email = alexandruh13@gmail.com
+[alias]
+    st = status -sb
+    pr = pull --rebase
+    lol = log --oneline --graph --all --decorate
+[merge]
+        tool = kdiff3
+[mergetool]
+        prompt = no
+[color]
+        ui = true
+[core]
+        autocrlf = input
+        excludesfile = $HOME/.gitignore
+[push]
+	default = current

@@ -1,0 +1,11 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =9
+let g:netrw_dirhist_1='/home/alex/src'
+let g:netrw_dirhist_2='/home/alex'
+let g:netrw_dirhist_3='/home/alex/git'
+let g:netrw_dirhist_4='/home/alex/git/git'
+let g:netrw_dirhist_5='/home/alex/git'
+let g:netrw_dirhist_6='/home/alex/git/backup'
+let g:netrw_dirhist_7='/home/alex/git/backup/src'
+let g:netrw_dirhist_8='/home/alex/git/backup/src/bkservd'
+let g:netrw_dirhist_9='/home/alex/git/frankenstein/.ropeproject'

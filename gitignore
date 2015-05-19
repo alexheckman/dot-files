@@ -1,0 +1,11 @@
+*kate-swp
+*~
+/debian
+/build
+*.kdev4
+*.aux
+*.pdf
+*.toc
+*.log
+*.out
+*.pyc
