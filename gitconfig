@@ -6,13 +6,13 @@
     pr = pull --rebase
     lol = log --oneline --graph --all --decorate
 [merge]
-        tool = kdiff3
+    tool = kdiff3
 [mergetool]
-        prompt = no
+    prompt = no
 [color]
-        ui = true
+    ui = true
 [core]
-        autocrlf = input
-        excludesfile = $HOME/.gitignore
+    autocrlf = input
+    excludesfile = $HOME/.gitignore
 [push]
 	default = current

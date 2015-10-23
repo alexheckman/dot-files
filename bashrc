@@ -77,3 +77,4 @@ alias g="gitk --all"
 #vars
 export CSCOPE_DB=/home/alex/.cscope/cscope.out
 export LNX=/home/alex/git/linux
+export HISTCONTROL=ignoreboth:erasedups #ignore history duplicates
