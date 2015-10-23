@@ -1,3 +1,6 @@
 [submodule "vim/bundle/nerdtree"]
 	path = vim/bundle/nerdtree
 	url = git@github.com:scrooloose/nerdtree.git
+[submodule "vim/bundle/easygrep"]
+	path = vim/bundle/easygrep
+	url = git@github.com:vim-scripts/EasyGrep.git
