@@ -8,3 +8,7 @@ vim:
 
 bashrc:
 	@cp -af ./bashrc $(HOME)/.bashrc
+
+git:
+	@cp -af ./gitconfig $(HOME)/.gitconfig
+	@cp -af ./gitignore $(HOME)/.gitignore

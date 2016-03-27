@@ -47,7 +47,7 @@ if has('cscope')
 	cnoreabbrev csh cs help
 	
 	" command -nargs=0 Cscope cs add $VIMSRC/src/cscope.out $VIMSRC/src $CSCOPE_DIR/cscope.out
-	command -nargs=0 Cscope cs add $CSCOPE_DIR
+	" command -nargs=0 Cscope cs add $CSCOPE_DIR
 endif
 
 
@@ -74,7 +74,7 @@ nmap <Leader><Leader> V
 nmap <Leader>qq :q!<CR><Esc>
 nmap <Leader>wq :wq<CR><Esc>
 nmap <Leader>ww :w<CR><Esc>
-nmap zz :q!<CR><Esc>
+nmap zz :qa!<CR><Esc>
 
 au filetype python nnoremap <Leader>\ :RopeGotoDefinition<CR>
 au filetype python nnoremap <Leader>cd :RopeShowDoc<CR>
@@ -89,3 +89,17 @@ nmap <Leader>p "+p
 nmap <Leader>P "+P
 vmap <Leader>p "+p
 vmap <Leader>P "+P
+
+nmap <F8> :!g++ --std=c++11 -Wall -g -o solution % && ./solution<CR>
+
+function Self_compile(extra_lib)
+    let l:lnk = "q"
+    if !empty(a:extra_lib)
+        let l:lnk = " -l" . a:extra_lib
+    endif
+
+   execute "!g++ --std=c++11 -Wall -g -o solution %" . l:lnk
+endfunction
+
+nmap <F11> :call Self_compile("udev")<CR>
+nmap <F12> :!./solution<CR>
