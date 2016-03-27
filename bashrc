@@ -71,10 +71,10 @@ alias mc='mc --colors normal=green,default:selected=brightmagenta,gray:marked=ye
 ulimit -c unlimited
 
 #aliases
-alias stage="git st | grep ' M' | cut -d ' ' -f 3 | xargs git add"
 alias g="gitk --all"
+alias gg="git gui"
 
 #vars
-export CSCOPE_DB=/home/alex/.cscope/cscope.out
-export LNX=/home/alex/git/linux
+#export CSCOPE_DB=/home/alex/.cscope/cscope.out
+export LNX=/home/alex/src/linux
 export HISTCONTROL=ignoreboth:erasedups #ignore history duplicates
