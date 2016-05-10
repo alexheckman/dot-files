@@ -27,6 +27,9 @@ set backupdir=/tmp
 set laststatus=2
 set statusline=%F%m%r%h%w\ [format=%{&ff}]\ [type=%Y]\ [current=%04l,%04v][%p%%]\ [lines=%L] 
 
+" where to store .swp files
+set dir=/tmp
+
 "
 " ** load linux kernel coding style
 "
