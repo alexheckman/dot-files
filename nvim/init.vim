@@ -56,6 +56,7 @@ else
   Plug 'roxma/vim-hug-neovim-rpc'
 endif
 let g:deoplete#enable_at_startup = 1
+Plug 'deoplete-plugins/deoplete-go', { 'do': 'make'}
 
 Plug 'mileszs/ack.vim'
 let g:ackprg = 'ag --go --cc --asm --cpp -U --vimgrep'
