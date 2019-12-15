@@ -1,5 +1,9 @@
-let g:python_host_prog='/usr/bin/python2'
-let g:python3_host_prog='/usr/bin/python3'
+let s:python_host_path='/usr/bin/'
+if has('macunix')
+    s:python_host_path='/usr/local/bin/'
+endif
+let g:python_host_prog = s:python_host_path . 'python2'
+let g:python3_host_prog = s:python_host_path . 'python3'
 let g:mapleader = "\<Space>"
 
 set bg=dark
@@ -32,7 +36,6 @@ let g:lightline = { 'colorscheme': 'wombat' }
 Plug 'fxn/vim-monochrome'
 let g:monochrome_italic_comments = 1
 Plug 'morhetz/gruvbox'
-colorscheme gruvbox
 
 " Golang
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
@@ -77,6 +80,7 @@ if get(g:, 'elite_mode')
     nnoremap <C-Right> :vertical resize +5<cr>
 endif 
 
+colorscheme gruvbox
 
 inoremap jj <esc>
 
