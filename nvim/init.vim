@@ -1,6 +1,6 @@
 let s:python_host_path='/usr/bin/'
 if has('macunix')
-    s:python_host_path='/usr/local/bin/'
+    let s:python_host_path='/usr/local/bin/'
 endif
 let g:python_host_prog = s:python_host_path . 'python2'
 let g:python3_host_prog = s:python_host_path . 'python3'
