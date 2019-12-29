@@ -124,15 +124,13 @@ vnoremap <leader>s :s/\<<C-r><C-w>\>//g<Left><Left>
 nnoremap <leader>ve :vsplit $MYVIMRC<cr>
 nnoremap <leader>vs :source $MYVIMRC<cr>
 
-augroup filetype_go 
+augroup filetype_go
 autocmd!
-autocmd FileType go nnoremap <leader>gb <Plug>(go-build)
-autocmd FileType go nnoremap <leader>gt <Plug>(go-test-compile)
-autocmd FileType go nnoremap <leader>gl <Plug>(go-lint)
-autocmd FileType go nnoremap <leader>gi <Plug>(go-imports)
-autocmd FileType go nnoremap <leader>gd <Plug>(go-describe)
-autocmd FileType go nnoremap <C-]>      <Plug>(go-def)
-autocmd FileType go nnoremap <buffer> <leader>c I//<esc>
+autocmd FileType go nnoremap <leader>gb :GoBuild<cr>
+autocmd FileType go nnoremap <leader>gt :GoTestCompile<cr>
+autocmd FileType go nnoremap <leader>gd :GoDef<cr>
+autocmd FileType go nnoremap <leader>gr :GoReferrers<cr>
+autocmd FileType go nnoremap <C-]>      :GoDef<cr>
 augroup END
 augroup filetype_python
 autocmd!
