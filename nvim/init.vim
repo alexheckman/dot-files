@@ -6,42 +6,70 @@ let g:python_host_prog = s:python_host_path . 'python2'
 let g:python3_host_prog = s:python_host_path . 'python3'
 let g:mapleader = "\<Space>"
 
+" if hidden is not set, TextEdit might fail.
+set hidden
+set noshowmode
+
+" some servers have issues with backup files, see #649
+set nobackup
+set nowritebackup
+
+" Better display for messages
+set cmdheight=1
+set laststatus=2
+
+" you will have bad experience for diagnostic messages when it's default 4000.
+set updatetime=300
+
+" don't give |ins-completion-menu| messages.
+set shortmess+=c
+
+" always show signcolumns
+set signcolumn=yes
+
+" some common options
 set bg=dark
-set nu hlsearch incsearch relativenumber
+set number relativenumber
+set hlsearch incsearch 
 set showmode showcmd
 set tabstop=4 shiftwidth=4 softtabstop=4 expandtab smartindent smarttab
-set laststatus=2
-set wfh " win fixed height
-set wfw " win fixed width
+
+" display
+set t_Co=256
+colorscheme gruvbox
 
 highlight ExtraWhitespace ctermbg=red guibg=red
 match ExtraWhitespace /\s\+$/
 
+" Plugins
+"
 call plug#begin('~/.nvim/plugged')
-Plug 'tpope/vim-sensible'
-
 " search
+"
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-nnoremap <silent> <leader>l :Buffers<cr>
 let g:fzf_layout = { 'window': 'enew' }
-nmap <leader><tab> <plug>(fzf-maps-n)
+nnoremap <silent> <C-p> :Buffers<cr>
+nnoremap <silent> <C-f> :Files<cr>
+nnoremap <leader><tab> <plug>(fzf-maps-n)
+
+Plug 'mileszs/ack.vim'
+let g:ackprg = 'ag --go --cc --asm --cpp -U --vimgrep'
 
 " look and feel
-Plug 'itchyny/lightline.vim'
-if !has('gui_running')
-  set t_Co=256
-endif
-let g:lightline = { 'colorscheme': 'wombat' }
-Plug 'fxn/vim-monochrome'
-let g:monochrome_italic_comments = 1
+"
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+let g:airline_theme = 'wombat'
 Plug 'morhetz/gruvbox'
 
-" Golang
+" programming
+"
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-let g:go_bin_path = $HOME."/go/bin"
-let g:go_def_mode = 'godef'
-" let g:go_gocode_propose_source = 0
+let g:go_def_mode='gopls'
+let g:go_info_mode='gopls'
+" default mapping is replaced by CoC
+let g:go_def_mapping_enabled = 0
 let g:go_highlight_functions = 1  
 let g:go_highlight_methods = 1  
 let g:go_highlight_structs = 1  
@@ -50,20 +78,10 @@ let g:go_highlight_build_constraints = 1
 let g:go_highlight_types = 1
 let g:go_highlight_fields = 1
 
-" autocomplete
-if has('nvim')
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-else
-  Plug 'Shougo/deoplete.nvim'
-  Plug 'roxma/nvim-yarp'
-  Plug 'roxma/vim-hug-neovim-rpc'
-endif
-let g:deoplete#enable_at_startup = 1
-Plug 'deoplete-plugins/deoplete-go', { 'do': 'make'}
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
-Plug 'mileszs/ack.vim'
-let g:ackprg = 'ag --go --cc --asm --cpp -U --vimgrep'
-
+" misc
+"
 Plug 'godlygeek/tabular'
 call plug#end()
 
@@ -80,7 +98,6 @@ if get(g:, 'elite_mode')
     nnoremap <C-Right> :vertical resize +5<cr>
 endif 
 
-colorscheme gruvbox
 
 inoremap jj <esc>
 
@@ -109,9 +126,12 @@ nnoremap <leader>vs :source $MYVIMRC<cr>
 
 augroup filetype_go 
 autocmd!
-autocmd FileType go nnoremap <leader>b  <Plug>(go-build)
-autocmd FileType go nnoremap <leader>t  <Plug>(go-test)
-autocmd FileType go nnoremap <C-]> :GoDef<cr>
+autocmd FileType go nnoremap <leader>gb <Plug>(go-build)
+autocmd FileType go nnoremap <leader>gt <Plug>(go-test-compile)
+autocmd FileType go nnoremap <leader>gl <Plug>(go-lint)
+autocmd FileType go nnoremap <leader>gi <Plug>(go-imports)
+autocmd FileType go nnoremap <leader>gd <Plug>(go-describe)
+autocmd FileType go nnoremap <C-]>      <Plug>(go-def)
 autocmd FileType go nnoremap <buffer> <leader>c I//<esc>
 augroup END
 augroup filetype_python
