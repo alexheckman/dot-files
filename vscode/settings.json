@@ -1,0 +1,83 @@
+{
+    "vim.easymotion": false,
+    "vim.sneak": false,
+    "vim.incsearch": true,
+    "vim.useSystemClipboard": true,
+    "vim.useCtrlKeys": true,
+    "vim.hlsearch": true,
+    "vim.insertModeKeyBindings": [
+        {
+            "before": [
+                "j",
+                "j"
+            ],
+            "after": [
+                "<Esc>"
+            ]
+        }
+    ],
+    "vim.normalModeKeyBindingsNonRecursive": [
+        {
+            "before": [
+                "<C-n>"
+            ],
+            "commands": [
+                ":nohl"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "m"
+            ],
+            "commands": [
+                "bookmarks.toggle"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "b"
+            ],
+            "commands": [
+                "bookmarks.list"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "w",
+                "w"
+            ],
+            "commands": [
+                "workbench.action.files.save"
+            ]
+        }
+    ],
+    "vim.leader": "<space>",
+    "vim.handleKeys": {
+        "<C-a>": false,
+        "<C-f>": false
+    },
+    "window.zoomLevel": 0,
+    "workbench.startupEditor": "none",
+    "editor.formatOnSave": true,
+    "editor.lineNumbers": "relative",
+    "go.useLanguageServer": true,
+    "go.formatTool": "goimports",
+    "go.lintOnSave": "off",
+    "go.vetOnSave": "off",
+    "go.autocompleteUnimportedPackages": true,
+    "editor.minimap.enabled": false,
+    "editor.renderControlCharacters": true,
+    "gitlens.blame.heatmap.enabled": false,
+    "gitlens.blame.highlight.locations": [
+        "gutter",
+        "overview"
+    ],
+    "gitlens.currentLine.enabled": false,
+    "gitlens.blame.highlight.enabled": false,
+    "workbench.colorTheme": "Monokai",
+    "editor.fontSize": 13,
+    "workbench.editor.showTabs": false
+}
