@@ -9,6 +9,7 @@ let g:mapleader = "\<Space>"
 filetype on
 
 set autowrite
+set hidden
 set noshowmode
 set linebreak
 
@@ -58,9 +59,10 @@ Plug 'tpope/vim-fugitive'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 let g:fzf_layout = { 'window': 'enew' }
+let g:fzf_preview_window = ''
 
 Plug 'mileszs/ack.vim'
-let g:ackprg = 'ag --go --cc --asm --cpp -U --vimgrep'
+let g:ackprg = 'ag -U --vimgrep'
 
 " look and feel
 "
@@ -122,9 +124,9 @@ vnoremap <leader>P "+P
 
 tnoremap <esc> <C-\><C-n>
 
-nnoremap <leader>s :Ack! '\b<cword>\b'<cr>
-nnoremap <leader>r :%s/\<<C-r><C-w>\>//g<Left><Left>
-vnoremap <leader>r :s/\<<C-r><C-w>\>//g<Left><Left>
+nnoremap <leader>a :Ack! '\b<cword>\b'<cr>
+nnoremap <leader>s :%s/\<<C-r><C-w>\>//g<Left><Left>
+vnoremap <leader>s :s/\<<C-r><C-w>\>//g<Left><Left>
 
 nnoremap <silent> <C-p> :Buffers<cr>
 nnoremap <silent> <C-f> :Files<cr>
