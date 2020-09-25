@@ -107,8 +107,8 @@ setopt HIST_IGNORE_SPACE
 setopt HIST_SAVE_NO_DUPS      
 setopt HIST_REDUCE_BLANKS     
 
-# remap caps key
-setxkbmap -layout us -option ctrl:nocaps
+# remap caps key - linux
+# setxkbmap -layout us -option ctrl:nocaps
 
 ulimit -c unlimited
 
@@ -117,31 +117,31 @@ export EDITOR=nvim
 export TERM=xterm-256color
 
 alias vim="nvim"
-#alias wo="$HOME/scripts/dev_pace.sh"
 alias g="gitk --all"
 alias gg="git gui"
 alias gs="git st"
-alias gr="grep --color -HnR"
 alias a="ag -U --ignore-dir=vendor"
 alias j="jobs"
+alias f="fg"
 
 #setup go
-export GOROOT=/usr/local/go
 export GOPATH=$HOME/go
-export PATH=$GOROOT/bin:$GOPATH/bin:$PATH
+export PATH=$GOPATH/bin:$PATH
 
 # setup python
-export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
-venvpaths=($HOME/.local/bin/virtualenvwrapper.sh /usr/local/bin/virtualenvwrapper.sh)
-for name in "${venvpaths[@]}"
+export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3
+venvpaths=(/usr/local/bin `python3 -m site --user-base`/bin)
+for p in "${venvpaths[@]}"
 do
-    if [[ -f $name ]]; then
+    if [[ -f $p/virtualenvwrapper.sh ]]; then
         export WORKON_HOME=~/.envs
-        source $name  
+        source $p/virtualenvwrapper.sh
         break
     fi
 done
 alias p=python3
+alias ip=ipython
+alias pp=pip3
 
 # fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
